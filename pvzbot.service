@@ -1,0 +1,18 @@
+[Unit]
+Description=PvZ Helper Telegram Bot Service
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/pvz_helper_bot
+ExecStart=/usr/bin/python3 /root/pvz_helper_bot/main.py
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
